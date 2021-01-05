@@ -1,0 +1,12 @@
+To go through this one we are going to exploit the /usr/bin/env echo, we will
+look for a place we can create symlinks and files which will be in /tmp, then we
+create a symlink like :
+	"ln -s /bin/getflag echo"
+The objective of this is to run the getflag function as the user that uses the
+script, which will be obviously flag03
+
+Then, we export the path variable to search for echo in our own directory like:
+	"export PATH=.:$PATH"
+
+We only need now to launch the ~/level03 from our tmp dir to execute getflag and
+find our flag

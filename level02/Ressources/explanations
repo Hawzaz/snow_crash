@@ -1,0 +1,3 @@
+extract the pcap with scp and then analyze it with wireshark, find a data packet
+and follow the tcp stream your output should be something like this Password:
+ft_wandr...NDRel.L0L then follow the hexdump track and del when it is prompted and find ft_waNDReL0L
