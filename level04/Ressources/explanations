@@ -1,0 +1,10 @@
+We see a perl script at ~, and when we look deep into the system we can find the
+same script at /var/www which means thata web server is listening, the shell
+script is giving us the information that it's listening on port 4747 and
+printing a variable named x, so we send it a x variable containing our getflag
+command like
+
+curl -d x='$(getflag)' localhost:4747 e.g the quotes are here to make our var
+into str
+
+We then get our flag :)
