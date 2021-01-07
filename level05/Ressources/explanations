@@ -1,0 +1,9 @@
+echo "For this one we need to find a file created by flag05 since there is nothing from us, we find openarenaserver in /usr/sbin which is a bash script executing files from the /opt/openarenaserver as the flag05 user, the issue here is that it is impossible for us to run this script. Fortunately, when we connect we see we have a new mail ! This mail looks like something like this :
+*/2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
+
+This is a job from the crontab executing every 2 minutes by flag 05. In order to
+get our flag, we're going to make a file containint "/bin/getflag > /tmp/a"
+which will execute getflag and store the result into tmp
+
+After giving everyone the good permissions and waiting the 2 longest minutes of
+our life, we can now find our flag in our /tmp/a file :).
