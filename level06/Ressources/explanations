@@ -1,0 +1,4 @@
+In this level we get a php regex which will match the str "[x whatever]" and
+execute the whatever group, we then use this as an exploit and type in to a file
+that will be passed as an argument [x {${system(getflag)}}], we then get the
+flag :)

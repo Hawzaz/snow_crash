@@ -1,0 +1,10 @@
+In this one we have a binary file, we use gdb and disassemble the main, "set
+disassembly-flavor intel" is recommended before "disas main", we see a call to
+get env getting the 0x8048680 value, which when we translate it to gdb with "x/s
+0x8048680" gives us LOGNAME
+
+We now translate the next cmd "0x8048688" which is "/bin/echo %s" and it prints
+level07 -- the logname
+
+We set logname as "export LOGNAME='$(getflag)' after execution, the binary gives
+us the flag :)
