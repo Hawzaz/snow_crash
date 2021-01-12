@@ -1,0 +1,7 @@
+In this one we try to play with the binary file, we see that it rotates by 1
+each character, incrementing at each, so in or order to decode our token we will
+reverse the process, we proceed the hexdump -C and get the hex 66 34 6b 6d 6d 36
+70 7c 3d 82 7f 70 82 6e 83 82 44 42 83 44 75 7b 7f 8c 89, we translate it to dec
+and get 102 52 107 109 109 54 112 124 61 130 127 112 130 110 131 130 68 66 131
+68 117 123 127 140 137 then we do a little c loop written in enorme.c and output
+our token, connecting to flag09 and getting the flag :)

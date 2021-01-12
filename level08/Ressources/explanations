@@ -1,0 +1,7 @@
+ In this level we have a binary file, we use strings on it and see that it reads
+ the file we give as an argument, unfortunately we have no read permission on
+ the token that we need, in order to bypass this, we create a symbolic link to
+ the token "ln -s token pouet" and launch "./level08 pouet", we can read the
+ file since we have the permission and it redirects to the token which is
+ iquif5eloekouj29ke0vouxean, we can now log as flag08 and get our flag to the
+ next level :)
