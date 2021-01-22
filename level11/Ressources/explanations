@@ -1,0 +1,7 @@
+For this level, we see a lua file which will be a total bait. We are going to use
+an echo exploit. The difference is that the file is executed somewhere where we
+have no access. We can run something in the echo command and output it in a
+place everybody can see (the /tmp dir :)), we will send "$(getflag) > /tmp/flag"
+as a password and it will execute "echo $(getflag) > /tmp/flag | sha1sum", we
+don't care about the shasum as our flag will now be pickable in the /tmp dir,
+get it and go directly to level 12 with it !

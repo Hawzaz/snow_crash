@@ -1,0 +1,30 @@
+In this level,things are getting a bit more complicated. We need to send a file
+to the host, which will print the content of the file.
+
+First, we want to listen to the port, we create a side term that willrun "nc -l
+localhost 6969" to listen to our send. We will then send our file, the goal
+here is to make the server print the token file.
+
+Our main issue is that we don't have access to the file, the permissions are
+checked by the access function which is know to have a race condition
+vulnerability that we will exploit.
+
+In order to do so, we will create a symlink to our token file called "pouet", we
+want pouet to point on a file that we have access to when the access condition
+checks it, and meanwhile the system is doing the open call, our link is modified
+to the token file. We can't be fast enough as humans, so we will do it as a
+script.
+
+We create test file which will contain random things that we have access to,
+then we will execute the listening in background with :
+"while true; do nc -l localhost 6969; done &"
+
+We want to flip our link, we create a second task that does it such as :
+"while true; do ln -fs token pouet; ln -fs test pouet; done &"
+
+Then, we do 30 iterations of sending it, that normally give us the time to enter
+in the vulnerabiity, if not run it multiple times
+
+Check your runs and get the flag : woupa2yuojeeaaed06riuj63c :)
+
+You can now use getflag and run away with the treasure !

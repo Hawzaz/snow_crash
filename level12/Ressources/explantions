@@ -1,0 +1,18 @@
+On this level we have a perl script that executes an argument we give via $^xx
+in the script, we see that our args goes through 2 regex, one which will put it
+in uppercase and one that only takes the first group of the arg, we will create
+a very simple script like :
+
+#!/bin/sh
+getflag > /tmp/xd
+
+we now need to call it, to cummunicate we see that the script is listening on
+the 4646 port, we use curl as we did in level04 but the uppercase problem isnt
+solved. 
+The * charcter is very powerful, we will move ou script to tmp and call it "A"
+
+We see that if we do cat /*/A, it prints our script and we dont need upercases,
+the tricky part will now be the one where we execute into the curl line, exactly
+as we did in level04 : curl -d x='$(/*/scr)' localhost:4646
+
+We now have our flag in /tmp/xd !

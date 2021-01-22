@@ -1,0 +1,10 @@
+In this level we have a binary that requires us to have an uid of 4242 to give
+us the flag, in order to do so we look for infos on how to change ouruser id but
+there is nothing on this side, we use gdb to disassemble it and see that it is
+doing comparisions directly on the registers. We only need to set a breakpoint
+in gdb to the cmp instruction like 
+b *0x0804859a (sets a breakpoint to the 0x0804859a address)
+set $eax=4242 (set the register value to 4242)
+s (steps into the program and run it)
+
+We have "your token is 2A31L79asukciNyi8uppkEuSx" as an exit ! :)
