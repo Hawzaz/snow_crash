@@ -1,0 +1,35 @@
+In this final level, we're finding nothing on the ~, neither on the system. We
+qill need to sort it our by ourselves so we'll go for what we've learned
+previously !
+
+We just learned how to bypass a getuid, so lets think how does getflag works
+right ? :D
+
+Exactly hehe, the point is : there is a ptrace killing us while we're debugging
+this binary, but how does ptrace works ? 
+
+Under ptrace we look for the asm which does :
+test eax, eax
+
+Basically (after looking for it on the internet) this does exactly a cmp eax,0
+
+We're breaking at test like : b *0x0804898e then run and do a little set $eax=0
+
+We're through ! Lets bypass the getuid now, easy work for us :)
+
+Find the place under the getuid and then go through a breakpoint and change the
+eax register again !
+
+b *0x08048b0
+s
+set $eax=3014 (3014 is the id of flag 14 can de found in /etc/passwd)
+r
+
+And here is our flag :) 
+
+For the flex, we can su as flag 14 and use getflag
+
+"Congratulation. Type getflag to get the key and send it to me the owner of this
+livecd :)"
+
+PS : He uses the same :), like me hahahaha !
